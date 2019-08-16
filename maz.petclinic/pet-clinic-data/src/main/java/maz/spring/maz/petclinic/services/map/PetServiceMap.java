@@ -1,11 +1,11 @@
 package maz.spring.maz.petclinic.services.map;
 
-    import maz.spring.maz.petclinic.model.Pet;
-import maz.spring.maz.petclinic.services.CrudService;
+import maz.spring.maz.petclinic.model.Pet;
+import maz.spring.maz.petclinic.services.PetService;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
@@ -30,4 +30,6 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements Crud
     public void deleteById(Long id) {
         super.deleteById(id);
     }
+
+
 }
