@@ -1,16 +1,23 @@
 package maz.spring.maz.petclinic.model;
 
+import javax.persistence.*;
 import java.util.Set;
 
+@Entity
+@Table(name = "vets")
 public class Vet extends Person{
 
-    private Set<Speciality> specialities;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "vet_specialities" ,
+    joinColumns = @JoinColumn(name = "vet_id"),
+    inverseJoinColumns = @JoinColumn(name = "speciality_id"))
+    private Set<Speciality> specialties;
 
-    public Set<Speciality> getSpecialities() {
-        return specialities;
+    public Set<Speciality> getSpecialties() {
+        return specialties;
     }
 
-    public void setSpecialities(Set<Speciality> specialities) {
-        this.specialities = specialities;
+    public void setSpecialties(Set<Speciality> specialties) {
+        this.specialties = specialties;
     }
 }
